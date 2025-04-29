@@ -1,0 +1,23 @@
+services:
+  apachephp:
+    container_name: dev_${projectname}_apachephp
+    image: dev_${projectname}_apachephp
+    build:
+      context: ./
+      dockerfile: ${dockerfile}
+    environment:
+      - APACHE_RUN_USER=#${UID}
+      - APACHE_RUN_GROUP=#${GID}      
+      - APP_URL=${url}
+    working_dir: /var/www/html
+    ports:
+      - ${extport}:${innerport}
+    volumes:
+      - ../src:/var/www/html
+      - ../logs:/var/log
+    networks:
+      - projectnetwork
+  
+networks:
+  projectnetwork:
+    driver: bridge
