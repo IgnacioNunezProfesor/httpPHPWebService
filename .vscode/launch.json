@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "compounds": [
         {
-            "name": "Depurar Laravel",
+            "name": "Depurar todo",
             "configurations": ["Listen for XDebug", "Launch Edge"]
         }
     ],
@@ -13,22 +13,22 @@
         {
             "name": "Launch Edge",
             "request": "launch",
-            "type": "pwa-msedge",
-            "url": "http://laravel1.itec",
+            "type": "msedge",
+            "url": "http://httpserverjson.v1.localhost",
             "webRoot": "${workspaceFolder}/src",
         },
         {
             "type": "firefox",
             "request": "launch",
             "name": "Firefox",
-            "url": "http://laravel1.itec",
+            "url": "http://httpserverjson.v1.localhost",
         },
         
         {
             "name": "Launch Chrome",
             "request": "launch",
-            "type": "pwa-chrome",
-            "url": "http://laravel1.itec",
+            "type": "chrome",
+            "url": "http://httpserverjson.v1.localhost",
             "webRoot": "${workspaceFolder}/src"
         },
         {
