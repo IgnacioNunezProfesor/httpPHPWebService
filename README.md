@@ -15,3 +15,13 @@ Añade
 ## Instala php
 
 ## Instala Docker
+* ¿Cómo instalar Docker en ubuntu?[https://linuxiac.com/how-to-install-docker-on-ubuntu-24-04-lts/]
+* Instalar docker-compose
+  > apt install docker-compose
+
+## Levantar el servicio web
+> chmod +x ./script/build*.sh
+> ./script/buildDEVApachephp.sh
+
+## Depurar js
+* Launh Edge o Launch Firefox
