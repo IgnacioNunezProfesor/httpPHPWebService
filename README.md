@@ -20,7 +20,8 @@ Añade
   > apt install docker-compose
 
 ## Levantar el servicio web
-> chmod +x ./script/build*.sh 
+> chmod +x ./script/build*.sh
+
 > ./script/buildDEVApachephp.sh
 
 ## Depurar js
