@@ -24,7 +24,7 @@ COPY 00.apachecommonconfig/php.ini-development /usr/local/etc/php/php.ini
 #    && rm /etc/apache2/sites-available/000-default.conf
 
 RUN apt clean && rm -rf /var/lib/apt/lists/* \
-    && docker-php-ext-install pdo pdo_mysql mysqli mbstring exif pcntl bcmath gd ctype fileinfo curl zip
+    && docker-php-ext-install pdo pdo_mysql mysqli mbstring exif pcntl bcmath gd ctype fileinfo curl zip intl soap
 
 
 RUN a2enmod vhost_alias \

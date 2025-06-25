@@ -155,9 +155,9 @@
 ;   Production Value: "GPCS"
 
 ; zend.exception_ignore_args
-;   Default Value: Off
-;   Development Value: Off
-;   Production Value: On
+   Default Value: On
+   Development Value: On
+   Production Value: On
 
 ; zend.exception_string_param_max_len
 ;   Default Value: 15
@@ -421,7 +421,7 @@ max_input_time = 60
 ;max_input_nesting_level = 64
 
 ; How many GET/POST/COOKIE input variables may be accepted
-;max_input_vars = 1000
+max_input_vars = 10000
 
 ; Maximum amount of memory a script may consume
 ; https://php.net/memory-limit
@@ -950,7 +950,7 @@ default_socket_timeout = 60
 ;extension=tidy
 ;extension=xsl
 
-;zend_extension=opcache
+zend_extension=opcache
 
 ;;;;;;;;;;;;;;;;;;;
 ; Module Settings ;
