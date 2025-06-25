@@ -1,2 +1,1 @@
-composer install --optimize-autoloader --dev --working-dir=./src
-docker-compose --env-file ../env/.dev.env -f ./docker-compose.build.dev.yml up --build -d apachephp mysql
+docker-compose --env-file .\env\.dev.env  -f .\docker\docker-compose.mysql.build.yml up --build -d apachephp mysql
