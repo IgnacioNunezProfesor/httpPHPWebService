@@ -1,4 +1,3 @@
-version: '3.3'
 services:
   apachephp:
     container_name: ${projectname}_apachephp
@@ -9,33 +8,32 @@ services:
       dockerfile: ${dockerfile}
     environment:
       - APACHE_RUN_USER=#${UID}
-      - APACHE_RUN_GROUP=#${GID}      
+      - APACHE_RUN_GROUP=#${GID}
       - APP_URL=${url}
     working_dir: /var/www/html
     ports:
       - ${extport}:${innerport}
     volumes:
-      - ../src:/var/www/html
-      - ../logs:/var/log
+      - ../moodlesrc:/var/www/html
+      - ../moodlelogs:/var/log
+      - ../moodledata:/var/www/moodledata
     networks:
       - projectnetwork
   mysql:
     container_name: ${projectname}_mysql
     build:
       context: ./db
-      dockerfile: mysql/mysql.dockerfile
-    environment: 
-      - MYSQL_ROOT_USER=${MYSQL_ROOT_USER}
+      dockerfile: mysql/mysql.dev.dockerfile
+    environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-      - MYSQL_OUTPORT=${MYSQL_OUTPORT}
     ports:
       - "${MYSQL_OUTPORT}:3306"
     volumes:
-      - ./db/sqlscript:/docker-entrypoint-initdb.d/
-    command: --default-authentication-plugin=mysql_native_password
+      - ./mysql_data:/var/lib/mysql
+    #command: --default-authentication-plugin=mysql_native_password
     networks:
       - projectnetwork
 networks:

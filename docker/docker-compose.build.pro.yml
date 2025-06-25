@@ -1,4 +1,3 @@
-version: '3.3'
 services:
   apachephp:
     container_name: pro_${projectname}_apachephp
@@ -8,7 +7,7 @@ services:
       dockerfile: ${dockerfile}
     environment:
       - APACHE_RUN_USER=#${UID}
-      - APACHE_RUN_GROUP=#${GID}      
+      - APACHE_RUN_GROUP=#${GID}
       - APP_URL=${url}
     working_dir: /var/www/html
     ports:
@@ -40,26 +39,26 @@ services:
     networks:
       - projectnetwork
   mysql:
-      container_name: pro_${projectname}_mysql
-      image: pro_${projectname}_mysql
-      build:
-        context: ../
-        dockerfile: docker/db/mysql/mysql.pro.dockerfile
+    container_name: pro_${projectname}_mysql
+    image: pro_${projectname}_mysql
+    build:
+      context: ../
+      dockerfile: docker/db/mysql/mysql.pro.dockerfile
 
-      environment: 
-        - MYSQL_ROOT_USER=${MYSQL_ROOT_USER}
-        - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-        - MYSQL_DATABASE=${MYSQL_DATABASE}
-        - MYSQL_USER=${MYSQL_USER}
-        - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-        - MYSQL_OUTPORT=${MYSQL_OUTPORT}
-      ports:
-        - "${MYSQL_OUTPORT}:3306"
-      volumes:
-        - ./db/sqlscript:/docker-entrypoint-initdb.d/
-      command: --default-authentication-plugin=mysql_native_password
-      networks:
-        - projectnetwork
+    environment:
+      - MYSQL_ROOT_USER=${MYSQL_ROOT_USER}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_OUTPORT=${MYSQL_OUTPORT}
+    ports:
+      - "${MYSQL_OUTPORT}:3306"
+    volumes:
+      - ./db/sqlscript:/docker-entrypoint-initdb.d/
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - projectnetwork
 networks:
   projectnetwork:
     driver: bridge

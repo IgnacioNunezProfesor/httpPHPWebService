@@ -1,4 +1,4 @@
-FROM httpd:2.4
+FROM httpd:2.4.63
 
 RUN apt update && apt-get install -y \
     curl \
