@@ -3,6 +3,6 @@ readme.md
 src/reports
 mongodata
 ssh
-docker/mysql_data
+mysql_data
 moodledata
 moodlelogs
