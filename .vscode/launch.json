@@ -6,7 +6,10 @@
     "compounds": [
         {
             "name": "Depurar todo",
-            "configurations": ["Listen for XDebug", "Launch Edge"]
+            "configurations": [
+                "Listen for XDebug",
+                "Launch Edge"
+            ]
         }
     ],
     "configurations": [
@@ -14,8 +17,8 @@
             "name": "Launch Edge",
             "request": "launch",
             "type": "msedge",
-            "url": "http://httpserverjson.v1.localhost",
-            "webRoot": "${workspaceFolder}/src",
+            "url": "http://moodle.localhost",
+            "webRoot": "${workspaceFolder}/moodlesrc",
         },
         {
             "type": "firefox",
@@ -23,7 +26,6 @@
             "name": "Firefox",
             "url": "http://httpserverjson.v1.localhost",
         },
-        
         {
             "name": "Launch Chrome",
             "request": "launch",
