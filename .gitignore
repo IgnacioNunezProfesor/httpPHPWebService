@@ -3,6 +3,5 @@ readme.md
 src/reports
 mongodata
 ssh
-mysql_data
-moodledata
 moodlelogs
+mysql_data/mysql.sock
